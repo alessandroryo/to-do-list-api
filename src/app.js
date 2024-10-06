@@ -23,6 +23,12 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+
+// Home page route
+app.get('/', (req, res) => {
+    res.send('Welcome to the To-Do List API!');
+});
+
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/todos', authMiddleware, todoRoutes);
